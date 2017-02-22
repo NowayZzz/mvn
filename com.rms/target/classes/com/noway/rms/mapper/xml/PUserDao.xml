@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.noway.rms.mapper.PUserDaoMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.noway.rms.entity.PUser">
+		<result column="loginname" property="loginname" />
+		<result column="username" property="username" />
+		<result column="password" property="password" />
+		<result column="org_id" property="orgId" />
+		<result column="phone" property="phone" />
+		<result column="mobile" property="mobile" />
+		<result column="email" property="email" />
+		<result column="create_user_id" property="createUserId" />
+		<result column="createtime" property="createtime" />
+		<result column="update_user_id" property="updateUserId" />
+		<result column="updatetime" property="updatetime" />
+		<result column="beiz" property="beiz" />
+		<result column="state" property="state" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        loginname, username, password, org_id AS orgId, phone, mobile, email, create_user_id AS createUserId, createtime, update_user_id AS updateUserId, updatetime, beiz, state
+    </sql>
+</mapper>

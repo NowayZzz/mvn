@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.noway.rms.mapper.PResourceDaoMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.noway.rms.entity.PResource">
+		<result column="parent_id" property="parentId" />
+		<result column="name" property="name" />
+		<result column="component" property="component" />
+		<result column="icon" property="icon" />
+		<result column="url" property="url" />
+		<result column="urls" property="urls" />
+		<result column="from_class" property="fromClass" />
+		<result column="resource_type" property="resourceType" />
+		<result column="leaf" property="leaf" />
+		<result column="sort" property="sort" />
+		<result column="state" property="state" />
+		<result column="beiz" property="beiz" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        parent_id AS parentId, name, component, icon, url, urls, from_class AS fromClass, resource_type AS resourceType, leaf, sort, state, beiz
+    </sql>
+    
+    <select id="selectModuleIdByUserIdParentId" resultMap="BaseResultMap" >
+	    select DISTINCT resource.* from p_resource resource,p_user user,p_user_role userrole,p_role_resource roleresource where 
+		    resource.id=roleresource.resource_id and userrole.role_id=roleresource.role_id and user.id=userrole.user_id 
+		    and user.id=#{userId} and resource.parent_id=#{parentId} and resource.id>0
+	</select>
+	
+	<select id="selectChildIdByParentId" resultMap="BaseResultMap">
+ 	 	select * from p_resource where parent_id=#{parentId}
+  	</select>
+</mapper>

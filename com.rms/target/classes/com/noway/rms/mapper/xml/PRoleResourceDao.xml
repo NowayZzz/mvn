@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.noway.rms.mapper.PRoleResourceDaoMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.noway.rms.entity.PRoleResource">
+		<result column="resource_id" property="resourceId" />
+		<result column="role_id" property="roleId" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        resource_id AS resourceId, role_id AS roleId
+    </sql>
+    
+    <select id="selectPageByRoid" resultType="java.util.Map">
+ 	 	select prr.*,pr.name from p_role_resource prr left join p_role pr on prr.role_id=pr.id where prr.role_id=#{roid}
+  	</select>
+  	
+  	<select id="selectResourceByRoidAndParentId" resultType="java.util.HashMap">
+		select pr.id,pr.name as text,pr.icon, rn.resource_id as checked from p_resource pr left join (
+		select * from p_role_resource where role_id = #{0} ) rn
+		on rn.resource_id = pr.id where pr.parent_id = #{1}
+	  </select>
+</mapper>

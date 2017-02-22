@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.noway.rms.mapper.PUserRoleDaoMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.noway.rms.entity.PUserRole">
+		<result column="user_id" property="userId" />
+		<result column="role_id" property="roleId" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        user_id AS userId, role_id AS roleId
+    </sql>
+    
+    <select id="selectPageByUserId" resultType="java.util.Map">
+ 	 	select pur.*,pr.name from p_user_role pur left join p_role pr on pur.role_id=pr.id where pur.user_id=#{userId}
+  	</select>
+
+    <select id="selectPageOtherByUserId" resultType="java.util.Map">
+ 	 	select * from p_role pr where not exists (select role_id from p_user_role pur where pur.role_id=pr.id and pur.user_id=#{userId})
+  	</select>
+</mapper>
