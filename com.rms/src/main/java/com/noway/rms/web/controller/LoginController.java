@@ -56,6 +56,7 @@ public class LoginController extends BaseController {
 		
 		logger.info("----------------用户{}登录成功--------------------",pUser.getLoginname());
 		session.setAttribute(Constants.SESSION_USER, pUser);
+//		session.setAttribute(Constants.SESSION_USER_ID, pUser.getId());
 		
 		List<PResource> menuList = pResourceService.selectResourceListTreeByUserId(pUser.getId());
 		

@@ -16,6 +16,7 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.toolkit.StringUtils;
+import com.base.util.dwr.DwrUtil;
 import com.noway.rms.entity.PUser;
 import com.noway.rms.entity.PUserRole;
 import com.noway.rms.service.PUserRoleService;
@@ -120,6 +121,7 @@ public class PUserRoleController extends BaseController {
 			}
 		}
 		pUserRoleService.insertBatch(prList);
+		DwrUtil.noticeUser("noticeUser", "您的权限已经变更,请重新登录!", userId);
 		return jsonResult(true, "添加成功");
 	}
 	
@@ -127,6 +129,7 @@ public class PUserRoleController extends BaseController {
 	@ResponseBody
 	public String delRole(String userId,@RequestParam(value="ids[]") List<String> ids) {
 		pUserRoleService.deleteBatchIds(ids);
+		DwrUtil.noticeUser("noticeUser", "您的权限已经变更,请重新登录!", userId);
 		return jsonResult(true, "删除成功");
 	}
 	

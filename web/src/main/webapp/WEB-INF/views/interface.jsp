@@ -10,6 +10,9 @@
 	<link href="${ctx}/favicon.ico" type="image/x-icon" rel="shortcut Icon" />
 	<script type="text/javascript" src="${ctx }/static/jquery/jquery-1.10.1.min.js"></script>
 	<script type="text/javascript" src="${ctx }/static/bootstrap.js"></script>
+	<script type='text/javascript' src='${ctx}/dwr/engine.js'></script>
+	<script type='text/javascript' src='${ctx}/dwr/util.js'></script>
+	<script type="text/javascript" src="${ctx}/dwr/interface/userMessage.js"></script>
 <style type="text/css">
 .home_logo {
 	float: left;
@@ -38,10 +41,25 @@
 	right: 50px;
 }
 </style>
-
+<script type="text/javascript">
+	//dwr错误信息处理，覆盖原方法
+	dwr.engine._errorHandler = function(message, ex) {
+		dwr.engine._debug("Error: " + ex.name + ", " + ex.message, true);
+		console.log('dwr.engine._debug:'+"Error: " + ex.name + ", " + ex.message);
+	};
+</script>
 <script type="text/javascript">
 var updateDate = new Date(2014,10,6);
+
 $(document).ready(function(){
+	try {
+		dwr.engine.setActiveReverseAjax(true);
+		dwr.engine.setNotifyServerOnPageUnload(true);
+		userMessage.onPageLoad('${user.id}');
+	} catch (error) {
+		//alert(error.toString());
+	}
+	
 	if(window.parent!==window){
 		window.parent.href = "${ctx}/loginout.do";
 	}
@@ -122,6 +140,16 @@ $(document).ready(function(){
 		} */
 	}
 
+	function noticeUser(data){
+		$.messager.show({
+			title:'提示',
+			msg:data,
+			timeout:10000,
+			showType:'slide',
+			width:280,
+			height:150
+		});
+	}
 </script>
 </head>
 <body>
