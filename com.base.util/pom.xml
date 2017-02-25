@@ -41,37 +41,32 @@
 		<!-- LOG 日志相关依赖 begin -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId><!--核心log4j2jar包 -->
+			<artifactId>log4j-api</artifactId>
 			<version>${log4j2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
+			<artifactId>log4j-slf4j-impl</artifactId>
 			<version>${log4j2.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-slf4j-impl</artifactId><!--用于与slf4j保持桥接 -->
-			<version>${log4j2.version}</version>
-		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId><!-- slf4j -->
+			<artifactId>slf4j-api</artifactId>slf4j
 			<version>${slf4j.version}</version>
-		</dependency>
+		</dependency> -->
 		<!-- LOG 日志相关依赖 end -->
 
 		<!-- 加密工具 -->
-		<dependency>
+		 <dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk15on</artifactId>
 			<version>1.55</version>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 			<version>1.10</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- 验证码工具 -->
 		<dependency>

@@ -6,11 +6,7 @@
   <packaging>pom</packaging>
   <modules>
   	<module>com.base.util</module>
-  	<module>com.base.mybatis</module>
-  	<module>com.base.spring</module>
   	<module>com.rms</module>
-  	<module>com.web</module>
-  	<module>com.base.core</module>
   	<module>web</module>
   </modules>
 </project>

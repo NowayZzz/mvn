@@ -1,5 +1,7 @@
 package com.noway.rms.service.init;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.base.init.InitServiceInterface;
@@ -7,6 +9,8 @@ import com.noway.rms.entity.PResource;
 import com.noway.rms.service.PResourceService;
 
 public class SystemInitService  implements InitServiceInterface{
+	
+	private Logger logger = LoggerFactory.getLogger(SystemInitService.class);
 	
 	@Autowired
 	private PResourceService pResourceService;
@@ -37,6 +41,6 @@ public class SystemInitService  implements InitServiceInterface{
 		pr_资源.setIcon("icon-gear");
 		pr_资源.setSort(3);
 		pr_资源.setState("1");
-		
+		logger.info("-------初始化--SUCCESS-----"+pr_系统管理);
 	}
 }

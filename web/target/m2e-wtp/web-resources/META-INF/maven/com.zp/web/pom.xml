@@ -46,7 +46,7 @@
 			<version>5.1.22</version>
 		</dependency>
 		<dependency>
-			<groupId>com.noway</groupId>
+			<groupId>com.zp</groupId>
 			<artifactId>com.rms</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

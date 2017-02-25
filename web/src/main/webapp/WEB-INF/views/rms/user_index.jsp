@@ -136,7 +136,6 @@
 			<tr>
 				<th data-options="field:'loginname',width:50,sortable:true">用户编号</th>
 				<th data-options="field:'username',width:50,sortable:true">用户名称</th>
-				<th data-options="field:'password',width:50">密码</th>
 				<th data-options="field:'state',width:100,formatter:function(value,row,index){
 																				if (value==1){
 																					return '正常';

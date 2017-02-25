@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.noway</groupId>
+	<groupId>com.zp</groupId>
 	<artifactId>com.rms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
@@ -32,9 +32,10 @@
 		<fastjson.version>1.2.20</fastjson.version>
 		
 		<mysql.driver.version>5.0.5</mysql.driver.version>
-		<log4j2.version>2.7</log4j2.version>
-     	<slf4j.version>1.7.21</slf4j.version>
+     	<javaxmail.version>1.5.6</javaxmail.version>
 
+		<quartz.version>2.2.3</quartz.version>
+	
 		<jdk.version>1.7</jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -116,6 +117,13 @@
 		</dependency>	
 		<!-- SPRING相关依赖  end-->
 		
+		<!-- spring 定时:Quartz 时间配置详解 -->
+		<dependency>
+		    <groupId>org.quartz-scheduler</groupId>
+		    <artifactId>quartz</artifactId>
+		    <version>${quartz.version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
@@ -174,29 +182,11 @@
 			<artifactId>mybatis-plus</artifactId>
 			<version>${mybaitsplus.version}</version>
 		</dependency>
-		<!-- 6.LOG 日志相关依赖 begin -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId><!--核心log4j2jar包-->  
-            <version>${log4j2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${log4j2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId><!--用于与slf4j保持桥接--> 
-            <version>${log4j2.version}</version>
-        </dependency>
-        <dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId><!-- slf4j -->
-			<version>${slf4j.version}</version>
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+			<version>${javaxmail.version}</version>
 		</dependency>
-		<!-- LOG 日志相关依赖 end -->
-		
         <dependency>
 			<groupId>com.zp</groupId>
 			<artifactId>com.base.common</artifactId>

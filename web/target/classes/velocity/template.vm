@@ -1,0 +1,7 @@
+<html>
+	<body>
+		<img src='cid:logo'>
+		<h4>${name}</ht4>
+		<i>${age}</i>
+	</body>
+</html>

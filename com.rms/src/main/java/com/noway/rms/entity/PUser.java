@@ -2,8 +2,12 @@ package com.noway.rms.entity;
 
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.annotation.JSONType;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.noway.rms.entity.base.BaseEntity;
 /**
  *
@@ -11,6 +15,7 @@ import com.noway.rms.entity.base.BaseEntity;
  * 创建时间 2017-01-10
  */
 @TableName("p_user")
+@JSONType(ignores={"password"})
 public class PUser extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
