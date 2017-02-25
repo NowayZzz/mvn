@@ -42,7 +42,7 @@ public class AccessInterceptor extends HandlerInterceptorAdapter {
 		
 		String uri = request.getRequestURI();
 		
-		logger.debug("验证URI："+uri);
+//		logger.debug("验证URI："+uri);
 		boolean beFilter = true;
         for (String s : noFilters) {
             if (StringUtils.contains(uri, s)) {

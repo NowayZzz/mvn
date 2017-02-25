@@ -34,6 +34,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
 		<dwr.version>3.0.2-RELEASE</dwr.version>
+		<ehcache.version>2.10.3</ehcache.version>
 	</properties>
 
 	<dependencies>
@@ -102,6 +103,12 @@
 			<groupId>org.directwebremoting</groupId>
 			<artifactId>dwr</artifactId>
 			<version>${dwr.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>net.sf.ehcache</groupId>
+		    <artifactId>ehcache</artifactId>
+		    <version>${ehcache.version}</version>
 		</dependency>
 	</dependencies>
 </project>

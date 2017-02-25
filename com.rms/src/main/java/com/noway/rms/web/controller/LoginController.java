@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.base.util.cache.impl.EhcacheCacheImpl;
 import com.common.util.Constants;
 import com.noway.rms.entity.PResource;
 import com.noway.rms.entity.PUser;
@@ -27,6 +28,8 @@ public class LoginController extends BaseController {
 	
 	@Autowired
 	private PResourceService pResourceService;
+	
+	EhcacheCacheImpl ehcache = new EhcacheCacheImpl("onLineUserCache");
 	
 	@RequestMapping(value = "login")
 	public String index(Model model, HttpSession session, PUser user) {
@@ -57,7 +60,13 @@ public class LoginController extends BaseController {
 		logger.info("----------------用户{}登录成功--------------------",pUser.getLoginname());
 		session.setAttribute(Constants.SESSION_USER, pUser);
 //		session.setAttribute(Constants.SESSION_USER_ID, pUser.getId());
-		
+		try {
+			logger.debug("开始放入缓存登录用户:"+pUser);
+			ehcache.put(pUser.getLoginname(), pUser);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("在线统计登录人数放入缓存失败");
+		}
 		List<PResource> menuList = pResourceService.selectResourceListTreeByUserId(pUser.getId());
 		
 		session.setAttribute("menuList", menuList);	

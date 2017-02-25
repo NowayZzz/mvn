@@ -127,11 +127,11 @@
 			<version>1.8.10</version>
 		</dependency>
 		<!-- 3.SERVLET WEB begin -->
-		<dependency>
+		<!-- <dependency>
 		    <groupId>javax.servlet</groupId>
-		    <artifactId>javax.servlet-api</artifactId><!-- j2ee web spec -->
+		    <artifactId>javax.servlet-api</artifactId>j2ee web spec
 		    <version>4.0.0-b01</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId><!-- JSTL标签类 -->
