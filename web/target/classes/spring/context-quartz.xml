@@ -27,7 +27,7 @@
 			<ref bean="jobtask"/>
 		</property>
 		<property name="cronExpression">
-			<value>0 27 16 * * ?</value>
+			<value>0 10 22 * * ?</value>
 		</property>
 	</bean>   
 	<bean lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">

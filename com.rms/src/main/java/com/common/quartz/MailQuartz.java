@@ -11,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Component;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 
+@Component
 public class MailQuartz {
 	
 	@Autowired
@@ -26,8 +28,8 @@ public class MailQuartz {
 		MimeMessageHelper helper ;
 		try {
 			helper = new MimeMessageHelper(message, true, "utf-8");
-			helper.setFrom("spring_mail_test");
-			helper.setTo("hbzp0428@163.com");
+			helper.setFrom("zptest163@163.com");
+			helper.setTo("zptest163@163.com");
 			helper.setSubject("spring邮件测试");
 			
 			Map<String, Object> map = new HashMap<String, Object>();
