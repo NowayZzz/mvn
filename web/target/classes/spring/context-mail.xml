@@ -12,7 +12,9 @@
      http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd" 
      default-autowire="byName" >
 	
-	<bean id="mailPropertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="order" value="2" />  
+	    <property name="ignoreUnresolvablePlaceholders" value="true" />  
 		<property name="location">
 			<value>classpath:properties/config.properties</value>
 		</property>
