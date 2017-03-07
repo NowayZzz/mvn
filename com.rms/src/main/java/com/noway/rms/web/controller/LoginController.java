@@ -47,14 +47,14 @@ public class LoginController extends BaseController {
 //		systemUserService.checkLoginName(user.getLoginname());
 		if ( null == pUserList || pUserList.size() == 0){
 			model.addAttribute("errMsg", "用户不存在");
-			return "signin";
+			return "login";
 		} 
 		
 		PUser pUser = pUserList.get(0);
 		if (!user.getPassword().equals(pUser.getPassword())) {
 //			if (!MD5Utils.getMD5(user.getPassword()).equals(pUser.getPassword())) {
 			model.addAttribute("errMsg", "密码不正确");
-			return "signin";
+			return "login";
 		}
 		
 		logger.info("----------------用户{}登录成功--------------------",pUser.getLoginname());
@@ -77,6 +77,6 @@ public class LoginController extends BaseController {
 	public String signout_page(HttpSession session) {
 		session.invalidate();
 		
-		return "redirect:/signin";
+		return "redirect:/login";
 	}
 }
